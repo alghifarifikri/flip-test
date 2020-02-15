@@ -36,7 +36,12 @@ class Disbursement{
 
         $stmt->execute();
 
-        return $stmt;
+        $stmt->close();
+
+        $latest = $this->read();
+		$this->connection->close();
+
+        return $latest;
     }
 
     //R
@@ -58,8 +63,12 @@ class Disbursement{
         $stmt = $this->connection->prepare($query);
 
         $stmt->execute();
+        $stmt->close();
 
-        return $stmt;
+        $updated = $this->read();
+        $this->connection->close();
+
+        return $updated;
     }
 
     //D

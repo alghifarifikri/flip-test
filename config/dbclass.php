@@ -1,16 +1,18 @@
 <?php
 
+include_once 'config.php';
+
 class DBClass {
 
-    private $host = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $database = "flip_test";
-
+    private $config;
     public $connection;
 
-    public function getConnection(){
+    public function __construct(){
+    $this->config = new Config();
 
+    }
+
+    public function getConnection(){
         $this->connection = null;
 
         try{
