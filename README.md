@@ -5,7 +5,7 @@
 
 ## Requirement
 * Web Server (e.g XAMPP)
-* [Postmant](https://www.getpostman.com/)
+* [Postman](https://www.getpostman.com/)
 
 ## Setup
 1. Clone this repository to your local directory (e.g  D:\xampp\htdocs\flip-test)
