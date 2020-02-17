@@ -50,7 +50,7 @@
 	else {
 		http_response_code(400);
 
-		$response = $helper->response("failed", "Unable to check disbursement status. Transaction id is invalid or empty");
+		$response = $helper->response("failed");
 
 		echo json_encode($response);
 	}

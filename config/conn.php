@@ -6,7 +6,7 @@ include_once 'dbclass.php';
         {
             $dbclass = new DBClass(); 
             $connection = $dbclass->getConnection();
-            $sql = file_get_contents("../migration/database.sql"); 
+            $sql = file_get_contents("migration/database.sql"); 
             mysqli_query($connection, $sql);
             echo "Database and tables created successfully!";
         }

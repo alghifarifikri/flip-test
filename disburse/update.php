@@ -19,34 +19,20 @@
 	$data = json_decode(file_get_contents("php://input"));
 
 	if(
-		!empty($data->amount) &&
 		!empty($data->status) &&
-		!empty($data->bank_code) &&
-		!empty($data->account_number) &&
-		!empty($data->beneficiary_name) &&
-		!empty($data->remark) &&
-		!empty($data->fee)
+		!empty($data->receipt)
 	){
 
 		$payload = array(
-			"amount"			=> $data->amount,
 			"status"			=> $data->status,
-			"bank_code"			=> $data->bank_code,
-			"account_number"	=> $data->account_number,
-			"beneficiary_name"	=> $data->beneficiary_name,
-			"remark"			=> $data->remark,
-			"fee"				=> $data->fee
+			"receipt"			=> $data->receipt
 		);
 
-		$request = json_decode($helper->request('disburse', 'POST', $payload));
+		$request = json_decode($helper->request('disburse', 'PATCH', $payload));
 
-		$dbs->amount			= $request->amount;
 		$dbs->status 			= $request->status;
-		$dbs->bank_code			= $request->bank_code;
-		$dbs->account_number	= $request->account_number;
-		$dbs->beneficiary_name	= $request->beneficiary_name;
-		$dbs->remark			= $request->remark;
-		$dbs->fee 				= $request->fee;
+        $dbs->receipt 			= $request->receipt;
+        $dbs->time_served	    = $request->time_served;
 		$dbs->id             	= $request->id;
 
 
